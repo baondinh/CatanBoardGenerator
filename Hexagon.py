@@ -1,3 +1,5 @@
+# Tile and vertex logic using turtle
+
 import math 
 import turtle
  
