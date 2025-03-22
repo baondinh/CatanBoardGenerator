@@ -6,4 +6,5 @@ Currently working on a way to identify nodes and calculate "high-value" nodes
 - Need a way to evaluate path distance to other "high-value" nodes
 
 #### Sample Board Generated with Tkinter
+There is a refresh button, but video with demo is not included yet
 ![Alt text](CatanSnippet.PNG?raw=true "GeneratedBoard")
