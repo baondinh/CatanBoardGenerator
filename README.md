@@ -37,8 +37,8 @@ There is a refresh button, but video with demo is not included yet
 
 ### More on Tile Layout Logic:
 Tile generation is completed by column starting with a central column of tiles and symmetrical surrounding columns. Tiles are positioned based on:
-- Vertical spacing: Calculated using the height of a hexagon $\sqrt{3} \cdot \text{side length}$ 
-- Horizontal offsets: Based on the row distance from center and the column length $\frac{3}{2} \cdot \text{side length}$
+- Vertical spacing: Calculated using the height of a hexagon $\sqrt{3} \cdot (\text{side length})$ 
+- Horizontal offsets: Based on the row distance from center and the column length $\frac{3}{2} \cdot (\text{side length})$
 - Total of 19 hexes generated to match Catan board
   
 ### Work in Progress:
