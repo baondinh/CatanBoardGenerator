@@ -35,55 +35,19 @@ There is a refresh button, but video with demo is not included yet
 - A match is declared if both the X and Y coordinate differences fall within this margin.
 - This is not the most efficient way to determine shared vertices as it indicates an underlying imperfection in tile generation (shared vertices should be exact)
 
-### `tkinter` GUI Implementation:
-
-    Drawing the Catan board on a resizable canvas.
-
-    Labeling tiles with numbers and names.
-
-    Displaying the probability distribution (based on standard 36-die combinations) of dice values.
-
-    A Refresh button to regenerate a randomized board.
-
 ### More on Tile Layout Logic:
 Tile generation is completed by column starting with a central column of tiles and symmetrical surrounding columns. Tiles are positioned based on:
-- Vertical spacing: Calculated using the height of a hexagon $\sqrt(3) \cdot side_length$ (sqrt(3) * side_length).
-- Horizontal offsets: Based on the row's distance from the center and the column's width (1.5 * side_length).
-
-The current configuration supports a maximum tile row length of 5, resulting in the standard 19-hex Catan layout.
-🔢 Dice Roll Probabilities
-
-Tile numbers are distributed with the following frequencies, matching standard Settlers of Catan rules:
-Number	Probability (out of 36)
-2 / 12	1
-3 / 11	2
-4 / 10	3
-5 / 9	4
-6 / 8	5
-7	Not assigned to tiles
-
-These weights are used when summing up three-tile intersection probabilities, helpful for identifying high-value settlement spots.
-▶️ How to Run
-
-Make sure Python is installed on your machine. Then run:
-
-python catan_visualizer.py
-
-A GUI window will open with a randomly generated Catan board. Click the "Refresh" button to regenerate the layout and reassign tile values.
-🛠️ Possible Extensions
-
-    Add port locations and the robber mechanic.
-
-    Allow interactive placement of settlements/roads.
-
-    Highlight high-probability intersections visually.
-
-    Export the board as an image or PDF.
-
-
-# CatanBoardGenerator
-Board state generator for popular board game Settlers of Catan
-Currently working on a way to identify nodes and calculate "high-value" nodes
-- Able to identify three way intersections
-- Need to implement a way to rank ports
+- Vertical spacing: Calculated using the height of a hexagon $\sqrt{3} \cdot \text{side_length}$ 
+- Horizontal offsets: Based on the row distance from center and the column length $\frac{3}{2} \cdot \text{side_length}$
+- Total of 19 hexes generated to match Catan board
+  
+### Work in Progress:
+- Identify three-way intersections and use associated number values of the three tiles to determine "hotspots"
+  - Requires more probability and statistical analysis with random variables
+- Need to implement a way to evaluate port value
+  - These are either on a single tile vertex or a shared vertex between two tiles maximum
 - Need a way to evaluate path distance to other "high-value" nodes
+  - "Longest road" ease of completion/maintenance
+  - Shortest path to specific resources
+  - Shortest path to ports
+  - Efficiency of new settlement creation (requires two edges between each city)
